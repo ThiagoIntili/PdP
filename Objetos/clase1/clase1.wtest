@@ -1,0 +1,19 @@
+import clase1.* 
+
+
+describe "el sueldo de pepe" {
+  test "pepe me dice bien su sueldo cadete bono pres nulo y res nulo" {
+  assert.equals(1500, pepe.sueldo()) // con esto espero q cuando corra la prueba se fije si la pasa o da otra cosa 
+} 
+
+// testing -- test driven development (TDD) -- hago los test y luego codeo hasta q los test den bien (no siempre se puede hacer TDD)
+// testing -- criterio -- elige si arrancar con test o desarrolla y despues testea 
+
+  test "pepe me dice bien su sueldo cuando es gerente con bonos nulos" {
+    assert.equals(1000, pepe.sueldo())
+  }
+}
+
+// assert.that() -- espera a q de true 
+// assert.notThat() -- espera a q de false 
+

@@ -1,0 +1,41 @@
+object laika {
+	const raza = "salchicha" 
+	var energia = 100
+	method ladrar() { 
+		return "guau"
+	}
+	method salirAPasear() {
+		energia = energia - 20
+	} 
+	method raza() { 
+		return raza
+	} 
+	method energia() { // getter 
+		return energia 
+	} 
+	method energia(nuevaEnergia) { // setter 
+		energia = nuevaEnergia
+	} 
+} 
+
+object joaco {
+	var mascota = laika 
+	var energia = 100
+	method salirAPasear() {
+		mascota.salirAPasear() 
+		energia -= 20  
+	} 
+} 
+
+// los objetos son INMUTABLES 
+// metodos q no devuelven algo pero cambian atributos -- verbos en infinitivo 
+// metodos q devuelven algo -- sustantivos 
+// usar siempre camelCase 
+// metodos q devuelven un atributo -- getters 
+// los metodos getters se deben llamar igual a sus atributos 
+// metodos que escriben en atributos se llaman setters 
+
+consola: 
+
+objeto.mensaje() 
+laika.ladrar() // imprime "guau"  
