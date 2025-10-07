@@ -23,7 +23,7 @@ object logan {
     // bloque que entiende apply(item)
   }
   method contraer(enfermedad) {}
-  method estaEnComa() = temperatura == 45 or celulas  
+  method estaEnComa() = temperatura == 45 or celulas < 1000000 
   method aumentarTemperatura(cantidad) {
     temperatura = (temperatura + cantidad).min(45)
   }
@@ -68,10 +68,14 @@ class Paciente {
   const enfermedades 
   var temperatura = 37 
   var celulas 
-  method vivirUnDia() {
-    enfermedades.forEach({ enfermedad => enfermedad.afectar(self) }) 
+  method contraer(enfermedad) {
+    enfermedades.add(enfermedad)
   }
-  method contraer(enfermedad) {}
+  method vivirUnDia() {
+    enfermedades.forEach({ enfermedad => enfermedad.afectar(self) }) // ejecuta el mensaje en cada obeto del set 
+    // es como una funcion lambda solo q aca el forEach tiene efecto, en cambio el map no 
+    // bloque que entiende apply(item)
+  }
   method estaEnComa() = temperatura == 45 or celulas  
   method aumentarTemperatura(cantidad) {
     temperatura = (temperatura + cantidad).min(45)

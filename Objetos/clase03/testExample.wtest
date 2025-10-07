@@ -4,18 +4,19 @@ test "Frank contra una enfermedad" {
   frank.contraer(malaria800)
   assert.equals(frank.temperatura(), 36.8)
 }
-/*
-test "aa" {
-  frank.contraer(malaria800)
-  assert(frank.temperatura(), 36.8)
+
+test "malaria contraida por logan se reproduce" {
+  logan.contraer(malaria800)
+  assert.equals(frank.temperatura(), 36.8)
 }
 
 test "Logan vive un dia" {
-  logan.viveUnDia()
-  assert.equals(logan.cantidadDeCelulasAfectadas, 0)
-  logan.estaEnComa() 
+  logan.vivirUnDia()
+  logan.cantidadDeCelulasAmenazadasPorEnfermedadesAgresivas()
+  logan.enfermedadMasAfecta()
+  assert.equals(logan.estaEnComa(), true)
 }
-*/ 
+
 test "logan vive un mes" {
   31.times ({
     //aca va un bloque q es un objeto tmb 
