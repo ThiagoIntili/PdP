@@ -33,6 +33,9 @@ object logan {
   method enfermedadMasAfecta() = lupus10000
   method celulas() = celulas
   method temperatura() = temperatura
+  method tomarDosis(dosis) {
+    enfermedades.forEach({ enfermedad => enfermedad.atenuar(dosis) })
+  }
   } 
 
   // hay mucha logica repetida 
