@@ -1,17 +1,32 @@
-const malaria500 = new EnfermedadInfecciosa(celulasAmenazadas = 500)
-const malaria800 = new EnfermedadInfecciosa(celulasAmenazadas = 500)
-const otitis100 = new EnfermedadInfecciosa(celulasAmenazadas = 100)
+import Objetos.clase04.example.*
+
 object lupus10000 {
   var cantidadAfecciones = 0
+  var cantidadCelulasAfectadas = 10000
+  var curada = false
   method afectar(persona) {
         persona.destruirCelulas(10000)
         cantidadAfecciones += 1 
   }
+  method atenuar(cantMedicamento) {
+    cantidadAfecciones -= cantMedicamento / 1000
+    self.curar()
+  }
+  method curar() {
+    if (cantidadCelulasAfectadas <= 0) {
+      cantidadCelulasAfectadas = 0
+      curada = true
+    }
+  }
+  method curada() = true 
   method esAgresivo() = cantidadAfecciones >= 30 
   method celulasAmenazadas() = 10000 
   method esAgresivo(_persona) = cantidadAfecciones // se usa el guion bajo enfrente para indicar que es un atributo q debo poner pero no voy a usar 
 }
 
+const malaria500 = new EnfermedadInfecciosa(cantidadCelulasAfectadas = 500)
+const malaria800 = new EnfermedadInfecciosa(cantidadCelulasAfectadas = 500)
+const otitis100 = new EnfermedadInfecciosa(cantidadCelulasAfectadas = 100)
 object logan {
   const enfermedades = #{malaria500, otitis100, lupus10000}
   method cantidadDeCelulasAmenazadasPorEnfermedadesAgresivas() = enfermedades.filter({ enfermedad => enfermedad.esAgresivo() }).sum({ enfermedad => enfermedad.celulasAmenazadas() })
@@ -43,15 +58,7 @@ object logan {
 // para evitar esta repeticion podemos usar clases 
 // una clase es un molde para los objetos 
 
-class EnfermedadInfecciosa {
-  var celulasAmenazadas 
-  method esAgresivo(persona) = persona.celulas() * 0.1  <= 100000
-  method celulasAmenazadas()  = 0 
-  method afectar(persona) {} 
-  method reproducirse() {
-    celulasAmenazadas *= 2 
-  }
-} 
+
 
 // existen las colecciones q funcionan como arrays 
 // ademas existen conjuntos q se declaran con {} 
